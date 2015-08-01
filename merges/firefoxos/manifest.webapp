@@ -1,0 +1,22 @@
+{
+    "launch_path": "/index.html",
+    "installs_allowed_from": [
+        "*"
+    ],
+    "version": "0.0.1",
+    "name": "OOTFY",
+    "pkgName": "fr.paranoiaque.ootfy",
+    "orientation": ["portrait","portrait"],
+    "fullscreen": "true",
+    "description": "Ootfy is free strong authentication software.e",
+    "developer": {
+        "name": "Virgil",
+        "url": "http://www.paranoiaque.fr"
+    },
+    "icons": {
+        "128": "/icon/icon-128.png",
+        "256": "/icon/icon-256.png",
+        "512": "/icon/icon-512.png"
+    }
+}
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <title>OOTFY</title>
+    </head>
+    <body>
+        <div data-role="page">
+          <div data-role="navbar" id="ootfy-header">
+            OOTFY 
+            <i class="fa fa-home" id="menu-home"></i>
+            <i class="fa fa-cog"  id="menu-conf"></i>
+          </div>
+          <div data-role="content">
+            <div id="conf-error">
+              Configuration updated
+            </div>
+            <label for="conf-userid">User ID</label>
+            <input name="conf-userid" id="conf-userid" value="" type="text">
+            
+            <label for="conf-domain">Domain key</label>
+            <input name="conf-domain" id="conf-domain" value="" type="text">
+            
+            <label for="conf-key">Key size</label>
+            <select name="conf-key" id="conf-key" data-role="select">
+              <option value="4" selected="selected">4 characters</option>
+              <option value="8">8 characters</option>
+              <option value="16">16 characters</option>
+              <option value="32">32 characters</option>
+            </select>
+            
+            <label for="conf-validity">Validity</label>
+            <select name="conf-validity" id="conf-validity" data-role="select">
+              <option value="15">15 seconds</option>
+              <option value="30">30 seconds</option>
+              <option value="45">45 seconds</option>
+              <option value="60" selected="selected">60 seconds</option>
+              <option value="90">90 seconds</option>
+              <option value="120">120 seconds</option>
+            </select>
+            
+            <br/><br/>
+            
+            <input type="button" id="conf-save" value="Save"/>
+          </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
+
