@@ -9,11 +9,9 @@ This software is licensed under the terms of the MIT license.
 
 ## Installation
 
-This is the client part, server part is in an other repository :
-https://github.com/V-Paranoiaque/OOTFY-server
-For the moment you have to install OOTFY by your self.
+For the moment I don't provide installation by stores, you have to install 
+OOTFY by your self.
 
-For the moment I don't provide installation by stores.
 Just install Cordova and copy all files. 
 After you will be able to compile mobile applications.
 
