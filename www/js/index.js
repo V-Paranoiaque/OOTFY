@@ -40,6 +40,7 @@ var app = {
         var url = document.URL.split('/');
         var current = url[url.length-1];
         if(current == 'index.html') {
+            localStorage.pin='';
             setTimeout(function(){
               document.location.href="home.html";
             }, 500);
@@ -112,7 +113,7 @@ function add_pin(num) {
 
 $("#pin_ok").touchstart(function() {
 	var pin = $("#pin-area").val();
-	
+	alert(pin);
 	if(pin != '') {
 		localStorage.pin = pin;
 		document.location.href="token.html"
@@ -187,15 +188,15 @@ $("#token-back").touchstart(function() {
 
 function generate_token(base_time) {
 
-  var user_id = localStorage.user_id;
+  var userid = localStorage.userid;
   
-  if(user_id == null) {
-    user_id = '';
+  if(userid == null) {
+    userid = '';
   }
   
-  var domain_key = localStorage.domain_key;
-  if(domain_key == null) {
-    domain_key = '';
+  var domain = localStorage.domain;
+  if(domain == null) {
+    domain = '';
   }
   
   var key_size = localStorage.key_size;
@@ -205,14 +206,15 @@ function generate_token(base_time) {
     key_size = 4;
   }
   
-  var pin = $("#pin").val();
+  var pin = localStorage.pin;
   
-  if(pin == null) {
-    pin = '';
+  if(pin == null || pin == '') {
+    document.location.href="home.html";
   }
   
-  var shaPin = new jsSHA(pin+base_time, "TEXT");
-  var shaObj = new jsSHA(user_id+shaPin.getHash("SHA-512", "HEX")+domain_key, "TEXT");
+  var shaPin = new jsSHA(pin+''+base_time, "TEXT");
+  console.log(userid+shaPin.getHash("SHA-512", "HEX")+domain);
+  var shaObj = new jsSHA(userid+shaPin.getHash("SHA-512", "HEX")+domain, "TEXT");
   
   return shaObj.getHash("SHA-512", "HEX").substring(0, key_size);
 }
@@ -220,23 +222,26 @@ function generate_token(base_time) {
 function display_token() {
 
   var timestamp = Math.round(+new Date() / 1000);
-  var period    = localStorage.period;
-  var token     = generate_token(timestamp);
+  var validity  = localStorage.validity;
+  var token     = '';
   var val       = 0;
   
-  if(period != 15 && period != 30 && period != 60 && 
-     period != 90 && period != 120) {
-    period = 60;
+  if(validity != 15 && validity != 30 && validity != 60 && 
+     validity != 90 && validity != 120) {
+    validity = 60;
   }
   
-  var increment = 360/period;
+  var increment = 360/validity;
+  
+  timestamp = timestamp - timestamp%validity;
+  token     = generate_token(timestamp);
   $("#token").val(format_token(token));
   
   window.setInterval(function(){
     timestamp = Math.round(+new Date() / 1000);
-    val = (period-timestamp%period);
+    val = (validity-timestamp%validity);
     
-    if(val == period) {
+    if(val == validity) {
       token = generate_token(timestamp);
       $("#token").val(format_token(token));
     }
