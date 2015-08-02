@@ -143,8 +143,8 @@ $("#conf-save").touchstart(function() {
   }
   
   var validity = $("#conf-validity").val();
-  if(validity == 15 || validity == 30 || validity == 60 || 
-     validity == 90 || validity == 120) {
+  if(validity == 15 || validity == 30 || validity == 45 || 
+     validity == 60 || validity == 90 || validity == 120) {
     localStorage.validity = validity;
   }
   
@@ -173,8 +173,8 @@ function load_config() {
   }
   
   var validity = localStorage.validity;
-  if(validity == 15 || validity == 30 || validity == 60 || 
-     validity == 90 || validity == 120) {
+  if(validity == 15 || validity == 30 || validity == 45 || 
+     validity == 60 || validity == 90 || validity == 120) {
     $("#conf-validity").val(validity);
     $("#conf-validity").selectmenu('refresh', true);
   }
@@ -226,8 +226,8 @@ function display_token() {
   var token     = '';
   var val       = 0;
   
-  if(validity != 15 && validity != 30 && validity != 60 && 
-     validity != 90 && validity != 120) {
+  if(validity != 15 && validity != 30 && validity != 45 && 
+     validity != 60 && validity != 90 && validity != 120) {
     validity = 60;
   }
   
