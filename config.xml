@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="fr.paranoiaque.ootfy" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="fr.paranoiaque.ootfy" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>OOTFY</name>
     <description>
         Ootfy is free strong authentication software. With Ootfy you can authenticate your client safety even if they use short passwords.
@@ -8,17 +8,9 @@
       V_paranoiaque
     </author>
     <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <access origin="*" />
     <preference name="Fullscreen" value="true" />
     <preference name="orientation" value="portrait" />
     <preference name="BackgroundColor" value="0xFF1D88F6" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <icon src="res/icon.png" />
     <platform name="amazon-fireos">
         <icon src="res/android/ldpi.png" density="ldpi" />

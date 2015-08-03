@@ -144,6 +144,12 @@ label {
   font-size:1.1em;
 }
 
+#ootfy-version {
+  padding-top:2em;
+  text-align:center;
+  font-size:0.9em;
+}
+
 /*** Screen adaptations ***/
 @media screen and (min-device-width : 700px) and (max-device-width : 1199px) {
 	
