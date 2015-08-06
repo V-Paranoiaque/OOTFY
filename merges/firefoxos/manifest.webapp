@@ -3,7 +3,7 @@
     "installs_allowed_from": [
         "*"
     ],
-    "version": "0.0.2",
+    "version": "0.0.3",
     "name": "OOTFY",
     "pkgName": "fr.paranoiaque.ootfy",
     "orientation": ["portrait","portrait"],
