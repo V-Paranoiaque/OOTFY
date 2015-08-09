@@ -25,7 +25,7 @@ class OOTFY
 	
 	/**
 	 * Set new key size
-	 * @param int $keysize_new new key size
+	 * @param int keysize_new new key size
 	 */
 	function set_keysize($keysize_new=4)
 	{
@@ -51,7 +51,7 @@ class OOTFY
 		if($period_new != 15 && $period_new != 30 &&
 		   $period_new != 60 && $period_new != 90)
 		{
-			$this->period_new = $period_new;
+			$this->period = $period_new;
 			return true;
 		}
 		else
@@ -60,9 +60,14 @@ class OOTFY
 		}
 	}
 	
-	function calcul_token($pin) {
+	/**
+	 * Calcul token
+	 * @param pin int user's PIN
+	 * @return token
+	 **/
+	function calcul_token($pin)
+	{
 		$time = $_SERVER['REQUEST_TIME'] - $_SERVER['REQUEST_TIME']%$this->period;
-		
 		$tmp = hash('sha512', $pin.$time);
 		$result = hash('sha512', $this->userid.$tmp.$this->domainkey);
 		

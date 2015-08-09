@@ -2,8 +2,8 @@
 
 include('OOTFY.class.php');
 
-function pin($pin) {
-  if($pin == 1) {
+function pin($pinResult) {
+  if($pinResult == 1) {
     return 'Good PIN';
   }
   else {
@@ -25,7 +25,7 @@ $OOTFY->set_keysize(SIZE);
 $OOTFY->set_period(PERIOD);
 $token = $OOTFY->calcul_token(PIN);
 
-echo '<b>Example :</b><br/>';
+echo '<b>Example:</b><br/>';
 
 echo '<br/>Enter '.$example;
 echo '<br/>'.pin($OOTFY->check_token($example, PIN));
