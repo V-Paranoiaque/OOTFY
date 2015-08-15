@@ -2,4 +2,5 @@
 hooks
 platforms
 plugins
+example/python/__pycache__/*
 
